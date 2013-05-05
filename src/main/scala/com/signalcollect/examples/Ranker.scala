@@ -25,7 +25,8 @@ class Citation(targetId: String)
 
 object Ranker extends App {
 
- val graph = GraphBuilder.withConsole(true, 8091)
+ val graph = GraphBuilder.withConsole(true)
+                         .withLoggingLevel(Logging.InfoLevel)
                          .build
  val execConfig = ExecutionConfiguration.withExecutionMode(ExecutionMode.Interactive)
  
@@ -37,18 +38,12 @@ object Ranker extends App {
  
  val stats = graph.execute(execConfig)
  
-//  val topPublications = graph.aggregate(new TopKFinder[String, Double](10))
-//  
-//  topPublications foreach (println(_))
- 
  graph.shutdown
  
  def loadGraph {
    val is = new FileInputStream("./dataset/references.nt")
    val parser = new NxParser(is)
-   var i = 0
-   while (parser.hasNext && i < 20000) {
-     i += 1
+   while (parser.hasNext) {
      val triple = parser.next
      val citer = triple(0).toString
      val cited = triple(2).toString
