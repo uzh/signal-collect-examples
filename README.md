@@ -18,4 +18,5 @@ We cannot include all required datasets into this repository as they would be to
 
 * Ranker 
 * RankerPatents: <http://snap.stanford.edu/data/cit-Patents.txt.gz>
+* TransitiveClosure: <http://snap.stanford.edu/data/cit-HepPh.txt.gz>
 

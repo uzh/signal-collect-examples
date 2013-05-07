@@ -63,7 +63,7 @@ object TransitiveClosure extends App {
 
   // Data file not in the repository but can be obtained here: 
   // http://snap.stanford.edu/data/cit-HepPh.html
-  val dataFile = "Cit-HepPh.txt"
+  val dataFile = "./dataset/Cit-HepPh.txt"
 
   // cluster configuration
   val jobname = "tc"
