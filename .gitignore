@@ -5,3 +5,6 @@
 log_messages.txt
 cit-HepPh.txt
 cit-Patents.txt
+.settings
+.cache
+signal-collect-*-SNAPSHOT.jar

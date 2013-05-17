@@ -46,9 +46,15 @@ object RankerPatents extends App {
   graph.shutdown
 
   def loadGraph {
+    
+    var i = 0;
     for (line <- Source.fromFile("./dataset/Cit-Patents.txt").getLines()) {
       if (!line.startsWith("#")) {
 
+        if (i % 100000 == 0) {
+          println("Adding Edge #" + (i))
+        }
+        
         // split and trim values
         var citation = line.split("\\s+");
         var citer = citation(0).trim()
@@ -58,6 +64,8 @@ object RankerPatents extends App {
         graph.addVertex(new Publication(citer))
         graph.addVertex(new Publication(cited))
         graph.addEdge(citer, new Citation(cited))
+        
+        i += 1;
       }
     }
   }
